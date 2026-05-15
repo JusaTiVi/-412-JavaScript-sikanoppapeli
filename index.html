@@ -6,7 +6,15 @@
     <title>Sika-noppapeli</title>
 </head>
 <body>
-    <p>pelaajamäärä: <input type="radio" id="kaksi" name="pelaajat">2<input type="radio" id="kolme" name="pelaajat">3<input type="radio" id="neljä" name="pelaajat">4 </p>
+    <div class="pelaajaLista">
+        <p>montako pelaajaa?</p>
+        <input id="maara">
+        <button onclick="pelaajamaara()">vahvista</button>
+
+        <p>anna nimet</p>
+        <input id="pelaajanimet">
+        <button onclick="pelaajat()">lisää</button>
+    </div>
     
 
     <ul id="pelaajat"></ul>

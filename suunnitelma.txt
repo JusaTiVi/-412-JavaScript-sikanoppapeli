@@ -1,0 +1,1 @@
+pelaajien määrä ja nimet määritellään div funktiossa ennen kuin peli näytetään pelaajille.
