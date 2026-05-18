@@ -6,20 +6,33 @@
     <title>Sika-noppapeli</title>
 </head>
 <body>
-    <div class="pelaajaLista">
+    <div id="valmistelu">
         <p>montako pelaajaa?</p>
-        <input id="maara">
+        <input id="maara" type="number">
         <button onclick="pelaajamaara()">vahvista</button>
 
-        <p>anna nimet</p>
-        <input id="pelaajanimet">
-        <button onclick="pelaajat()">lisää</button>
+        <div id="nimiosa" style="display: none;">
+
+            <p>anna pelaajien nimet</p>
+
+            <input id="pelaajanimet">
+            <button onclick="pelaajat()">lisää</button>
+
+            <ul id="pelaajat"></ul>
+
+            <button onclick="aloita()">aloita peli</button>
+        </div>
     </div>
     
+    <div id="game" style="display: none;">
+        <h2>peli käynnissä</h2>
 
-    <ul id="pelaajat"></ul>
+        <button onclick="heitto()">Heitä noppaa</button>
 
-    
+        <p id="tulos"></p>
+    </div>
+
 </body>
+
 <script src="js/main.js"></script>
 </html>
