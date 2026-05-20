@@ -10,6 +10,7 @@
         <p>montako pelaajaa?</p>
         <input id="maara" type="number">
         <button onclick="pelaajamaara()">vahvista</button>
+        <p id="lukuvirhe" style="color: red;"></p>
 
         <div id="nimiosa" style="display: none;">
 
@@ -24,12 +25,18 @@
         </div>
     </div>
     
-    <div id="game" style="display: none;">
+    <div id="peli" style="display: none;">
         <h2>peli käynnissä</h2>
 
         <p id="vuoro"></p>
 
+        <p id="kierroksenpisteet">kierroksen pistemäärä: 0</p>
+
+        <ul id="pisteet"></ul>
+
         <button onclick="heitto()">Heitä noppaa</button>
+
+        <button onclick="talletus()">talleta</button>
 
         <p id="tulos"></p>
     </div>
