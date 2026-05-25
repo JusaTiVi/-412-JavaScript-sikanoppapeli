@@ -19,7 +19,14 @@
             <input id="pelaajanimet">
             <button onclick="pelaajat()">lisää</button>
 
-            <ul id="pelaajat"></ul>
+            <ul id="pelaajalista"></ul>
+            
+        </div>
+        <div id="maaliosa" style="display: none;">
+            <p>paljonko pisteitä vaaditaan voittoon?</p>
+            <input id="maali" type="number">
+            <button onclick="voittomaali()">vahvista</button>
+            <p style="color: blueviolet;">(suositeltu määrä on vähintään 100)</p>
 
             <button onclick="aloita()">aloita peli</button>
         </div>

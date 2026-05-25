@@ -3,6 +3,8 @@ let pisteet = []
 let kierroksenpisteet = 0
 let maara = 0
 let vuoro = 0
+let maali = 100
+
 lukuvirhe = document.getElementById("lukuvirhe")
 
 function pelaajamaara() {
@@ -16,6 +18,10 @@ function pelaajamaara() {
 
     document.getElementById("lukuvirhe").textContent = ""
     document.getElementById("nimiosa").style.display = "block"
+}
+
+function voittomaali() {
+    maali = document.getElementById("maali").value;
 }
 
 function pelaajat() {
@@ -35,9 +41,13 @@ function pelaajat() {
 
     li.textContent = nimi
 
-    document.getElementById("pelaajat").appendChild(li)
+    document.getElementById("pelaajalista").appendChild(li)
 
     document.getElementById("pelaajanimet").value = ""
+
+    if (nimet.length == maara) {
+        document.getElementById("maaliosa").style.display = "block"
+    }
 }
 
 function aloita() {
@@ -47,6 +57,7 @@ function aloita() {
     document.getElementById("peli").style.display = "block"
 
     paivitavuoro()
+    pelaajalista()
 }
 
 function seuraavavuoro() {
@@ -58,6 +69,7 @@ function seuraavavuoro() {
     }
 
     paivitavuoro()
+    pelaajalista()
 }
 
 function paivitavuoro() {
@@ -74,6 +86,46 @@ function heitto() {
     nimet[vuoro] + ": " + noppa
 
     if (noppa === 1) {
+        kierroksenpisteet = 0
+
+        document.getElementById("kierroksenpisteet").textContent =
+        "kierroksen pistemäärä: 0"
+
         seuraavavuoro()
+
+        return
+    }
+
+    kierroksenpisteet += noppa
+
+    document.getElementById("kierroksenpisteet").textContent =
+    "kierroksen pistemäärä: " + kierroksenpisteet
+}
+
+function talletus() {
+    pisteet[vuoro] += kierroksenpisteet
+
+    if (pisteet[vuoro] >= maali) {
+        alert(nimet[vuoro] + " voitti pelin!")
+    }
+    kierroksenpisteet = 0
+
+    document.getElementById("kierroksenpisteet").textContent =
+        "kierroksen pistemäärä: 0"
+
+    seuraavavuoro()
+    pelaajalista()
+}
+
+function pelaajalista() {
+    let lista = document.getElementById("pisteet")
+
+    lista.innerHTML = ""
+
+    for (kohta in nimet) {
+        let li = document.createElement("li")
+        li.textContent = nimet[kohta] + ": " + pisteet[kohta]
+
+        lista.appendChild(li)
     }
 }
