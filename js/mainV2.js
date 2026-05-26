@@ -1,6 +1,7 @@
 let nimet = []
 let pisteet = []
 let kierroksenpisteet = 0
+let tuplat = 0
 let maara = 0
 let vuoro = 0
 let maali = 100
@@ -90,6 +91,19 @@ function heitto() {
     if (noppa === 1 && noppa2 === 1) {
         kierroksenpisteet += 25
 
+        tuplat += 1
+
+        if (tuplat === 3) {
+            kierroksenpisteet = 0
+
+            document.getElementById("kierroksenpisteet").textContent =
+            "kierroksen pistemäärä: 0"
+
+            seuraavavuoro()
+
+            return
+        }
+
         document.getElementById("kierroksenpisteet").textContent =
         "kierroksen pistemäärä: " + kierroksenpisteet
 
@@ -98,6 +112,19 @@ function heitto() {
 
     else if (noppa === noppa2) {
         kierroksenpisteet += (noppa + noppa2) * 2
+
+        tuplat += 1
+
+        if (tuplat === 3) {
+            kierroksenpisteet = 0
+
+            document.getElementById("kierroksenpisteet").textContent =
+            "kierroksen pistemäärä: 0"
+
+            seuraavavuoro()
+
+            return
+        }
 
         document.getElementById("kierroksenpisteet").textContent =
         "kierroksen pistemäärä: " + kierroksenpisteet
@@ -115,6 +142,8 @@ function heitto() {
 
         return
     }
+
+    tuplat = 0
 
     kierroksenpisteet += noppa + noppa2
 
