@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sika-noppapeli kahdella nopalla</title>
+    <title>Sika-noppapeli kahdella nopalla</title>
 </head>
 <body>
+    <div id="valmistelu">
+        <p>montako pelaajaa?</p>
+        <input id="maara" type="number">
+        <button onclick="pelaajamaara()">vahvista</button>
+        <p id="lukuvirhe" style="color: red;"></p>
+
+        <div id="nimiosa" style="display: none;">
+
+            <p>anna pelaajien nimet</p>
+
+            <input id="pelaajanimet">
+            <button onclick="pelaajat()">lisää</button>
+
+            <ul id="pelaajalista"></ul>
+            
+        </div>
+        <div id="maaliosa" style="display: none;">
+            <p>paljonko pisteitä vaaditaan voittoon?</p>
+            <input id="maali" type="number">
+            <button onclick="voittomaali()">vahvista</button>
+            <p style="color: blueviolet;">(suositeltu määrä on vähintään 100)</p>
+
+            <button onclick="aloita()">aloita peli</button>
+        </div>
+    </div>
     
+    <div id="peli" style="display: none;">
+        <h2>peli käynnissä</h2>
+
+        <p id="vuoro"></p>
+
+        <p id="kierroksenpisteet">kierroksen pistemäärä: 0</p>
+
+        <ul id="pisteet"></ul>
+
+        <button onclick="heitto()">Heitä noppaa</button>
+
+        <button onclick="talletus()">talleta</button>
+
+        <p id="tulos"></p>
+    </div>
+
 </body>
+
+<script src="js/mainV2.js"></script>
 </html>
